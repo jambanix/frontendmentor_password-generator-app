@@ -1,28 +1,12 @@
-export const strengthQuantifiers = {
-  "none": 0,
-  "too-weak": 1,
-  "weak": 2,
-  "medium": 3,
-  "strong": 4,
+const strengthQuantifiers = {
+  0: "none",
+  1: "too-weak",
+  2: "weak",
+  3: "medium",
+  4: "strong"
 }
 
-export const calculateStrength = ({
-  length,
-  includeUpperCase,
-  includeLowerCase,
-  includeNumbers,
-  includeSymbols
-}) => {
-  let strength = 0;
-  if (length < 8) {
-    return 1;
-  }
-  if (length >= 8) strength++;
-  if (includeUpperCase && includeLowerCase) strength++;
-  if (includeNumbers) strength++;
-  if (includeSymbols) strength++;
-  return strength;
-}
+export const getStrengthDescription = (strength) => strengthQuantifiers[strength];
 
 export const generatePassword = ({
   length,
@@ -53,6 +37,18 @@ export const generatePassword = ({
   if (includeNumbers) baseChars += numbers;
   if (includeSymbols) baseChars += symbols;
 
+  // calculate strength 0 - 4
+  let strength = 0;
+  if (length > 0 && length < 8) {
+    strength++;
+  }
+  else {
+    strength++;
+    if (includeUpperCase && includeLowerCase) strength++;
+    if (includeNumbers) strength++;
+    if (includeSymbols) strength++;
+  }
+
   if (baseChars){
     baseChars = shuffle(baseChars);
     for (let x = 0; x < length; x++) {
@@ -61,7 +57,7 @@ export const generatePassword = ({
     }
   }
   else {
-    return out = "";
+    out = "";
   }
-  return out;
+  return {password: out, strength: strength};
 };
