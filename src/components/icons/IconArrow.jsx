@@ -7,23 +7,19 @@ const svg = (colourCode) => (
   </svg>
 );
 
-export const IconArrow = ({colour}) => {
+export const IconArrow = ({ colour }) => {
   const colourCode = (colour) => {
-    switch(colour) {
+    switch (colour) {
       case "neon-green":
         return "#a4ffaf";
       case "white":
         return "#ffffff";
       case "very-dark-grey":
-        return "#18171f"
+        return "#18171f";
       default:
         return "#a4affaf";
     }
-  }
+  };
 
-  return (
-    <>
-    {svg(colourCode(colour))}
-    </>
-  )
-}
+  return <>{svg(colourCode(colour))}</>;
+};

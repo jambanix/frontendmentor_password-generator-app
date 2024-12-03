@@ -9,12 +9,11 @@ const svg = (colourCode) => (
   </svg>
 );
 
-export const IconClipboard = ({onClick}) => {
-
+export const IconClipboard = ({ onClick }) => {
   const TIMEOUT = 3000;
   const [isActive, setIsActive] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  
+
   useEffect(() => {
     let timer;
     if (isActive) {
@@ -23,10 +22,10 @@ export const IconClipboard = ({onClick}) => {
       }, TIMEOUT);
     }
     return () => clearTimeout(timer);
-  }, [isActive])
+  }, [isActive]);
 
   const colourCode = (colour) => {
-    switch(colour) {
+    switch (colour) {
       case "neon-green":
         return "#a4ffaf";
       case "white":
@@ -34,14 +33,14 @@ export const IconClipboard = ({onClick}) => {
       default:
         return "#a4affaf";
     }
-  }
+  };
 
   const handleClick = () => {
     if (!isActive) {
       setIsActive(true);
       onClick();
     }
-  }
+  };
 
   if (isActive) {
     return (
@@ -49,11 +48,17 @@ export const IconClipboard = ({onClick}) => {
         <p className="text-neon-green">COPIED</p>
         {svg(colourCode("neon-green"))}
       </div>
-    )
-  }
-  else {
+    );
+  } else {
     return (
-      <div className="hover:cursor-pointer" onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)} onClick={handleClick}>{isHovering ? svg(colourCode("white")) : svg(colourCode("neon-green"))}</div>
-    )
+      <div
+        className="hover:cursor-pointer"
+        onMouseOver={() => setIsHovering(true)}
+        onMouseOut={() => setIsHovering(false)}
+        onClick={handleClick}
+      >
+        {isHovering ? svg(colourCode("white")) : svg(colourCode("neon-green"))}
+      </div>
+    );
   }
 };
