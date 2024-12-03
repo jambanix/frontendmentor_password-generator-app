@@ -62,7 +62,7 @@ function App() {
             <GenerationOptions {...{state, dispatch}} className="flex flex-col bg-dark-grey gap-5 text-almost-white"/>
 
             {/* Strength indicator */}
-            <div className="flex justify-between bg-very-dark-grey p-5">
+            <div className="flex justify-between bg-very-dark-grey p-5 items-center">
               <h3 className="text-grey uppercase">Strength</h3>
               <StrengthIndicator strength={strength} />
             </div>

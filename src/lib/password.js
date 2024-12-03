@@ -1,6 +1,6 @@
 const strengthQuantifiers = {
   0: "none",
-  1: "too-weak",
+  1: "too weak",
   2: "weak",
   3: "medium",
   4: "strong"
