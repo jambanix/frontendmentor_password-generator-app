@@ -50,16 +50,16 @@ function App() {
         <div className="flex flex-col gap-5 max-w-[540px] w-full">
 
           {/* Title */}
-          <header className="flex items-center justify-center text-lg">
+          <header className="flex items-center justify-center text-xl font-semibold">
             <h2 className="text-grey">Password Generator</h2>
           </header>
 
           {/* Generated password */}
-          <GeneratedPassword password={generatedPassword} clipboardOnClick={handleClipboardClick} className="text-lg py-4 px-6 flex justify-between bg-dark-grey text-almost-white placeholder:text-grey"/>
+          <GeneratedPassword password={generatedPassword} clipboardOnClick={handleClipboardClick} className="text-xl py-4 px-6 flex justify-between bg-dark-grey text-almost-white placeholder:text-grey"/>
 
           <section className="flex flex-col bg-dark-grey p-6 gap-6">
             {/* Length slider down to last checkbox */}
-            <GenerationOptions {...{state, dispatch}} className="flex flex-col bg-dark-grey gap-5 text-almost-white"/>
+            <GenerationOptions {...{state, dispatch}} className="flex flex-col bg-dark-grey gap-5 text-almost-white text-lg"/>
 
             {/* Strength indicator */}
             <div className="flex justify-between bg-very-dark-grey p-5 items-center">
