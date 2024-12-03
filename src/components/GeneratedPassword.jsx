@@ -8,7 +8,7 @@ export const GeneratedPassword = forwardRef(
         <input
           type="text"
           disabled={true}
-          className="flex-grow bg-dark-grey"
+          className="bg-dark-grey w-[80%]"
           ref={ref}
           value={password}
           placeholder="P4$5W0rD!"

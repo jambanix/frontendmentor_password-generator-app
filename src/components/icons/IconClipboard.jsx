@@ -52,7 +52,7 @@ export const IconClipboard = ({ onClick }) => {
   } else {
     return (
       <div
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer flex"
         onMouseOver={() => setIsHovering(true)}
         onMouseOut={() => setIsHovering(false)}
         onClick={handleClick}
